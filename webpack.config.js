@@ -20,70 +20,70 @@ module.exports = {
     },
     module: {
         rules: [{
-                test: /\.m?js$/,
-                exclude: /(node_modules|bower_components)/,
-                use: {
-                    loader: 'babel-loader',
-                    options: {
-                        presets: ['@babel/preset-env']
-                    }
+            test: /\.m?js$/,
+            exclude: /(node_modules|bower_components)/,
+            use: {
+                loader: 'babel-loader',
+                options: {
+                    presets: ['@babel/preset-env']
                 }
-            },
-            {
-                test: /\.s[ac]ss$/i,
-                use: [
-                    MiniCssExtractPlugin.loader,
-                    'css-loader',
-                    'sass-loader',
-                    {
-                        loader: 'postcss-loader',
-                        options: {
-                          postcssOptions: {
-                            plugins: [
-                                require('autoprefixer')
-                            ]
-                          },
-                        },
-                    }
-                ],
-            },
-            {
-                test: /\.css$/i,
-                use: [
-                    'style-loader',
-                    'css-loader',
-                    {
-                        loader: 'postcss-loader',
-                        options: {
-                          postcssOptions: {
-                            plugins: [
-                                require('autoprefixer')
-                            ]
-                          },
-                        },
-                    }
-                ],
-            },
-            {
-                test: /\.(png|jpe?g|gif|svg)$/,
-                use: [{
-                    loader: "file-loader",
-                    options: {
-                        outputPath: 'imgs',
-                        name: '[name].[ext]'
-                    }
-                }]
-            },
-            {
-                test: /\.(eot|ttf|woff|woff2)$/,
-                use: [{
-                    loader: "file-loader",
-                    options: {
-                        outputPath: 'fonts',
-                        name: '[name].[ext]'
-                    }
-                }]
             }
+        },
+        {
+            test: /\.s[ac]ss$/i,
+            use: [
+                MiniCssExtractPlugin.loader,
+                'css-loader',
+                'sass-loader',
+                {
+                    loader: 'postcss-loader',
+                    options: {
+                        postcssOptions: {
+                            plugins: [
+                                require('autoprefixer')
+                            ]
+                        },
+                    },
+                }
+            ],
+        },
+        {
+            test: /\.css$/i,
+            use: [
+                'style-loader',
+                'css-loader',
+                {
+                    loader: 'postcss-loader',
+                    options: {
+                        postcssOptions: {
+                            plugins: [
+                                require('autoprefixer')
+                            ]
+                        },
+                    },
+                }
+            ],
+        },
+        {
+            test: /\.(png|jpe?g|gif|svg)$/,
+            use: [{
+                loader: "file-loader",
+                options: {
+                    outputPath: 'imgs',
+                    name: '[name].[ext]'
+                }
+            }]
+        },
+        {
+            test: /\.(eot|ttf|woff|woff2)$/,
+            use: [{
+                loader: "file-loader",
+                options: {
+                    outputPath: 'fonts',
+                    name: '[name].[ext]'
+                }
+            }]
+        }
         ],
     },
     plugins: [
@@ -98,31 +98,27 @@ module.exports = {
         new CopyWebpackPlugin({
             patterns: [
                 {
-                    from:'src/img',
-                    to:'imgs'
+                    from: 'src/img',
+                    to: 'imgs'
                 },
-                {
-                    from:'src/js/tarteaucitron',
-                    to:'scripts/tarteaucitron',
-                }
             ]
         }),
         new ImageMinimizerPlugin({
             minimizerOptions: {
-              plugins: [
-                ['mozjpeg', { quality: 80 }],
-                ['pngquant'],
-                [
-                  'svgo',
-                  {
-                    plugins: [
-                      {
-                        removeViewBox: false,
-                      },
+                plugins: [
+                    ['mozjpeg', { quality: 80 }],
+                    ['pngquant'],
+                    [
+                        'svgo',
+                        {
+                            plugins: [
+                                {
+                                    removeViewBox: false,
+                                },
+                            ],
+                        },
                     ],
-                  },
                 ],
-              ],
             },
         }),
     ],

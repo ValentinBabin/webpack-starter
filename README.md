@@ -8,7 +8,7 @@ npm install
 
 ## Compiles for development
 ```
-npm run serve
+npm run watch
 ```
 
 ## Compiles and minifies for production
