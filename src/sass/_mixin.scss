@@ -1,0 +1,32 @@
+@mixin flex($align: center, $justify: center, $direction: row, $wrap: nowrap) {
+    display: flex;
+    align-items: $align;
+    justify-content: $justify;
+    flex-direction: $direction;
+    flex-wrap: $wrap;
+}
+@mixin font(
+    $font: $font--p,
+    $size: initial,
+    $transform: unset,
+    $weight: 400,
+    $color: $black,
+    $ls: normal,
+    $align: left
+) {
+    font-family: $font;
+    font-size: $size;
+    text-transform: $transform;
+    font-weight: $weight;
+    color: $color;
+    letter-spacing: $ls;
+    text-align: $align;
+}
+@mixin abs($top: 50%, $right: 50%, $bottom: auto, $left: auto, $x: -50%, $y: -50%) {
+    position: absolute;
+    top: $top;
+    right: $right;
+    bottom: $bottom;
+    left: $left;
+    transform: translateX($x) translateY($y);
+}

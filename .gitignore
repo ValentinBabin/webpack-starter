@@ -1,0 +1,31 @@
+.DS_Store
+.AppleDouble
+.LSOverride
+node_modules/
+
+# Thumbnails
+._*
+
+npm-debug.log
+
+*.map
+*/*.map
+
+src/bower/jquery
+*/src/bower/jquery
+
+dist/
+public/
+
+# Eclipse
+.settings
+.buildpath
+.project
+
+*/.idea
+*/.project
+*/.buildpath
+.idea/*
+
+package-lock.json
+
